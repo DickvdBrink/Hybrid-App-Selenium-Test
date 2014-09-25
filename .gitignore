@@ -26,3 +26,8 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+platforms/android/assets/
+platforms/android/ant-build/
+platforms/android/res/
+platforms/android/CordovaLib/ant-build/
