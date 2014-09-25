@@ -1,0 +1,12 @@
+{
+    "name": "Hybrid-App-Selenium-Test",
+    "version": "0.1.0",
+    "devDependencies": {
+        "jake": "0.5.16",
+        "cordova": "3.6.3-0.2.13",
+        "selenium-webdriver": "2.43.5",
+        "mocha": "1.21.4",
+        "istanbul": "0.3.2",
+        "istanbul-middleware": "0.2.0"
+    }
+}
