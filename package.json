@@ -7,6 +7,7 @@
         "selenium-webdriver": "2.43.5",
         "mocha": "1.21.4",
         "istanbul": "0.3.2",
-        "istanbul-middleware": "0.2.0"
+        "istanbul-middleware": "0.2.0",
+        "minimatch": "1.0.0"
     }
 }
