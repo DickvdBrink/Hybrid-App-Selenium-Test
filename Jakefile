@@ -1,4 +1,6 @@
 var path = require("path"),
+    fs = require("fs"),
+    http = require("http"),
     childProcess = require("child_process"),
     express = require("express"),
     im = require("istanbul-middleware");
@@ -8,6 +10,25 @@ task("start-istanbul-server", function() {
     var app = express();
     app.use('/coverage', im.createHandler());
     app.listen(4488);
+
+    process.on('SIGINT', function() {
+        var options = {
+            host: "localhost",
+            port: 4488,
+            path: "/coverage/download",
+            method: "GET"
+        };
+        console.log("Download coverage.zip");
+        var file = fs.createWriteStream("lcov.zip");
+        var req = http.request(options, function (res) {
+            res.pipe(file);
+            file.on("finish", function() {
+                console.log("Zip downloaded");
+                process.exit();
+            });
+        });
+        req.end();
+    });
 }, {
     async: true
 });
