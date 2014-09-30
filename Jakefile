@@ -38,6 +38,10 @@ task("start-selendroid-server", function() {
     var selendroid = "selendroid-standalone-0.11.0-with-dependencies.jar";
     var apk = "platforms/android/ant-build/HybridSeleniumTest-debug.apk";
 
+    if (!fs.existsSync(apk)) {
+        fail("APK doesn't exist, did you run `cordova build android`?");
+    }
+
     if (!process.env.ANDROID_HOME) {
         fail("ANDROID_HOME environment not set");
     }
